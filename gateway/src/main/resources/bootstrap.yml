@@ -1,0 +1,31 @@
+server:
+  port: 8079
+spring:
+  application:
+    name: api-gateway
+  cloud:
+    config:
+      name: application
+      uri: http://localhost:8080
+      label: master
+      profile: dev
+    gateway:
+      routes:
+        - id: order-service
+          uri: http://localhost:8080
+          predicates:
+            - Path=/order-service/**
+            - GedkTimeBetween=10:31,21:36
+          filters:
+            - AddResponseHeader=X-name,gedk
+            - AddRequestParameter=company,gedk-company
+        - id: auth-center
+          uri: http://localhost:8078
+          predicates:
+            - Path=/auth-center/**
+  rabbitmq:
+    host: 192.168.1.5
+    port: 5672
+    username: guest
+    password: guest
+
