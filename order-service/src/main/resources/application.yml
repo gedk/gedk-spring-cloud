@@ -10,8 +10,6 @@ spring:
     username: root
     password: 200225
     driver-class-name: com.mysql.cj.jdbc.Driver
-  main:
-    allow-bean-definition-overriding: true
 pagehelper:
   helper-dialect: mysql
   reasonable: true

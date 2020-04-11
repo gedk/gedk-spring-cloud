@@ -1,9 +1,10 @@
 package com.gedk.cloud.order.controller.param;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiParam;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.validation.constraints.NotNull;
 
 /**
  * Desc
@@ -13,10 +14,13 @@ import javax.validation.constraints.NotNull;
  */
 @Getter
 @Setter
+@ApiModel
 public class QueryOrderFilters {
-    @NotNull(message = "orderId不能为空")
+    @ApiParam(name = "orderId",value = "订单编号",defaultValue = "001")
+    //@NotNull(message = "orderId不能为空")
     private String orderId;
 
-    @NotNull(message = "name不能为空")
+    @ApiParam(name = "name",value = "名称",defaultValue = "name")
+    //@NotNull(message = "name不能为空")
     private String name;
 }
