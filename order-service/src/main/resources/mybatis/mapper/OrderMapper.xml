@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//MYBATIS.ORG//dtd Mapper 3.0//EN"
+        "http://mybatis.org.dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gedk.cloud.order.dao.mapper.OrderMapper">
+    <resultMap id="orderResultMap" type="com.gedk.cloud.order.dao.entity.OrderPO">
+        <result property="orderId" column="order_id"/>
+    </resultMap>
+    <select id="getOrders" resultMap="orderResultMap">
+        select * from t_order
+    </select>
+</mapper>
