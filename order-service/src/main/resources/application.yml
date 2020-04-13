@@ -10,8 +10,17 @@ spring:
     username: root
     password: 200225
     driver-class-name: com.mysql.cj.jdbc.Driver
+  application:
+    name: order-service
 pagehelper:
   helper-dialect: mysql
   reasonable: true
   support-methods-arguments: true
   params: count=countSql
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:9001/eureka/
+  instance:
+    prefer-ip-address: true
+    instance-id: order-service

@@ -26,8 +26,8 @@ import java.util.Set;
 public class SwaggerConfig {
     @Bean
     public Docket createRestApi() {
-        return new Docket(DocumentationType.SWAGGER_2).groupName("PMS")
-                //加载配置信息
+        return new Docket(DocumentationType.SWAGGER_2)
+                .groupName("PMS")
                 .apiInfo(new ApiInfoBuilder().title("PMS接口文档").build())
                 .produces(produceBuilder())
                 .globalResponseMessage(RequestMethod.GET,responseBuilder())

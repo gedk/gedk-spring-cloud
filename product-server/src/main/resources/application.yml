@@ -1,0 +1,22 @@
+server:
+  servlet:
+    context-path: /product-service
+  port: 9002
+spring:
+  application:
+    name: product-service
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:9001/eureka/
+  instance:
+    prefer-ip-address: true
+    instance-id: product-service
+feign:
+  hystrix:
+    enabled: true
+  client:
+    config:
+      default:
+        connectTimeout: 5000
+        readTimeout: 5000
