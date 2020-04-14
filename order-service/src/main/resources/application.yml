@@ -12,6 +12,23 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
   application:
     name: order-service
+  rabbitmq:
+    host: 192.168.1.4
+    port: 5672
+    username: guest
+    password: guest
+  cloud:
+    stream:
+      bindings:
+        myInput1:
+          destination: gedk
+          group: x
+        myInput2:
+          destination: gedk
+          group: y
+        myOutput:
+          destination: gedk
+
 pagehelper:
   helper-dialect: mysql
   reasonable: true
