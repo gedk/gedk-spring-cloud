@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
  * @since 2020/4/13 20:47
  */
 
-@FeignClient(value = "order-service",fallback = OrderServiceClientFallback.class)
+@FeignClient(value = "ORDER-service-1",fallback = OrderServiceClientFallback.class)
 public interface OrderServiceClient {
     @GetMapping(value = "/order-service/A/orders")
     String orders();

@@ -14,9 +14,6 @@ public interface ISendService {
     @Output("myOutput")
     SubscribableChannel send();
 
-    @Input("myInput1")
+    @Input("myInput")
     SubscribableChannel receiver1();
-
-    @Input("myInput2")
-    SubscribableChannel receiver2();
 }

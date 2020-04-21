@@ -1,9 +1,9 @@
 package com.gedk.cloud.order.aspect;
 
 import lombok.extern.slf4j.Slf4j;
-import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.ProceedingJoinPoint;
+import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
-import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
 import org.aspectj.lang.reflect.MethodSignature;
 import org.springframework.stereotype.Component;
@@ -23,10 +23,16 @@ public class MyAspect {
     @Pointcut(" execution(* com.gedk.cloud.order.controller.OrderController.*(..)) ")
     public void pointCut(){}
 
-    @Before("pointCut()")
-    public void before(JoinPoint joinPoint) {
-        MethodSignature signature = (MethodSignature) joinPoint.getSignature();
-        Method method = signature.getMethod();
-        log.info("方法规则式拦截 " + method.getName());
+    @Around("pointCut()")
+    public Object around(ProceedingJoinPoint joinPoint) throws Throwable {
+        Object returnValue = null;
+        try {
+            returnValue = joinPoint.proceed();
+        }finally {
+            MethodSignature signature = (MethodSignature) joinPoint.getSignature();
+            Method method = signature.getMethod();
+            log.info("方法规则式拦截 " + method.getName());
+        }
+        return returnValue;
     }
 }

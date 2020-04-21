@@ -11,9 +11,7 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
 @MapperScan("com.gedk.cloud.order.dao.mapper")
 @EnableDiscoveryClient
 public class OrderServiceApplication {
-
     public static void main(String[] args) {
         SpringApplication.run(OrderServiceApplication.class, args);
     }
-
 }

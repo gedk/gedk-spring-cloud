@@ -13,13 +13,8 @@ import org.springframework.stereotype.Service;
 @Service
 @EnableBinding(value={ISendService.class})
 public class EventBus {
-    @StreamListener("myInput1")
-    public void onReceiver1(Message msg){
+    @StreamListener("myInput")
+    public void onReceiver1xx(Message msg){
         System.out.println("消费者1:" + msg.getTitle());
-    }
-
-    @StreamListener("myInput2")
-    public void onReceiver2(Message msg){
-        System.out.println("消费者2:" + msg.getTitle());
     }
 }

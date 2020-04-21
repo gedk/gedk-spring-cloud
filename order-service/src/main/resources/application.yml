@@ -11,7 +11,7 @@ spring:
     password: 200225
     driver-class-name: com.mysql.cj.jdbc.Driver
   application:
-    name: order-service
+    name: order-service-1
   rabbitmq:
     host: 192.168.1.4
     port: 5672
@@ -20,14 +20,16 @@ spring:
   cloud:
     stream:
       bindings:
-        myInput1:
-          destination: gedk
+        myInput:
+          destination: ${spring.application.name}-log
           group: x
-        myInput2:
-          destination: gedk
-          group: y
         myOutput:
-          destination: gedk
+          destination: ${spring.application.name}-log
+      kafka:
+        binder:
+          brokers: http://localhost:9092
+
+      #default-binder: kafka
 
 pagehelper:
   helper-dialect: mysql
