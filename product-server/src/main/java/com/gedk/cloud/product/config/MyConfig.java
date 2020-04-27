@@ -15,7 +15,6 @@ import org.springframework.context.annotation.Configuration;
 public class MyConfig {
     @Bean
     Logger.Level feignLoggerLevel() {
-        DefaultFeignLoggerFactory d;
         return Logger.Level.FULL;
     }
 }

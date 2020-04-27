@@ -23,3 +23,8 @@ feign:
 logging:
   level:
     com.gedk.cloud.product.client.OrderServiceClient: debug
+    com.netflix: debug
+management:
+  endpoint:
+    health:
+      show-details: always
